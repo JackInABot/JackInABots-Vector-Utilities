@@ -24,8 +24,9 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotEyes.MakeEyesBlue(3)
-            robotEyes.HueGradient(0,0,0,"blue")
+            robotEyes.MakeEyesBlue()
+            time.sleep(3)
+            #robotEyes.HueGradient(0,0,0,"blue")
 
             robot.behavior.say_text("This is a test")
             # end test #
