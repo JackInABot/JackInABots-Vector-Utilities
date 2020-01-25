@@ -11,7 +11,7 @@ This is a pet project to create some easy to use, pick up and go executable code
 ### 1. Installation Info
 All of the utilities rely on the Vector SDK being operational, ensure that the SDK is working on your device and communicating with your vector before using any of the utilities. [Here is the tutorial provided by Anki to do that](https://developer.anki.com/vector/docs/index.html).
 
-Right now this repo is under development, and therefore is not available from pip3 or anything like that. Right now the best way is to gain access to the utilities is to implement `sys.path.insert(0, '../JackInABots-Vector-Utilities/Utilities')` into your project main file to have access to the folder (and change the directory string if your project is away from the main.py file which comes with the repo), then all you need to do is import what you want to use from the Utilities folder, like so `import RainbowEyes as rbe`.
+Right now this repo is under development, and therefore is not available from pip3 or anything like that. Right now the best way is to gain access to the utilities is to implement `sys.path.insert(0, '../JackInABots-Vector-Utilities/Utilities')` into any file using the Utilities **Then, make sure the _Utilities_ folder is inside the same directory as your project folder** to have access to the Utilities (I suppose you could change the directory string if you don't want the Utilities folder outside your project folder for any reason). Then all you need to do is import what you want to use from the Utilities folder, like so `import RainbowEyes as rbe`.
 
 I promise I plan to have this available to download via pip3 in the future so stay tuned while I figure that out -_-
 
