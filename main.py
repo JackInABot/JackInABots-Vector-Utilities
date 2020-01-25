@@ -1,10 +1,8 @@
 import time
 import sys
 import anki_vector
-
 #get utility paths
 sys.path.insert(0, '../JackInABots-Vector-Utilities/Utilities')
-
 import RainbowEyes as rbe
 
 def main():

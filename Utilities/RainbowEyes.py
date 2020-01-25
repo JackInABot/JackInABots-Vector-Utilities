@@ -5,7 +5,7 @@ class RainbowEyes:
     SavedHue = 0
     SavedSat = 0
     # Constructor sets up the attributes d^-^b #
-    def __init__(self,setRobot,setHue=None,setSat=None):
+    def __init__(self, setRobot, setHue=None, setSat=None):
         #vars
         self.hue = 0 if setHue == None else setHue
         self.sat = 1 if setSat == None else setSat
@@ -61,7 +61,7 @@ class RainbowEyes:
         self.__SetHue(0.5)
         self.__SetSat(1)
         self.WriteEyeColour()
-    
+
     def MakeEyesLightBlue(self):
         #Make eyes change colour
         self.__SetHue(0.6)
@@ -85,7 +85,7 @@ class RainbowEyes:
         self.__SetHue(0.8)
         self.__SetSat(1)
         self.WriteEyeColour()
-    
+
     def MakeEyesPink(self):
         #Make eyes change colour
         self.__SetHue(0.9)
@@ -98,7 +98,7 @@ class RainbowEyes:
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesCustom(self,hue=None,saturation=None):
+    def MakeEyesCustom(self, hue=None, saturation=None):
         hue = 0 if hue == None else hue #set hue to default or specified
         saturation = 1 if saturation == None else saturation #set saturation to default or specified
         #Make eyes change colour
@@ -106,7 +106,7 @@ class RainbowEyes:
         self.__SetSat(saturation)
         self.WriteEyeColour()
 
-    def MakeEyesRandom(self,justHue=None,rangeVal=None):
+    def MakeEyesRandom(self, justHue=None, rangeVal=None):
         justHue = True if justHue == None else justHue #set justHue to default or specified
         rangeVal = 100 if rangeVal == None else rangeVal #set rangeVal to default or specified
         #Make eyes change colour
@@ -114,7 +114,7 @@ class RainbowEyes:
         if(justHue == False): self.__SetSat(random.randrange(rangeVal)/100)
         self.WriteEyeColour()
     
-    def MakeEyesRainbow(self,delay=None,repeat=None):
+    def MakeEyesRainbow(self, delay=None, repeat=None):
         self.__SetSat(1)
 
         delay = 0 if delay == None else delay
@@ -122,7 +122,7 @@ class RainbowEyes:
 
         self.HueGradient(delay,repeat)
 
-    def MakeEyesPulse(self,delay=None,repeat=None,setColour=None,toPercent=None,fromPercent=None):
+    def MakeEyesPulse(self, delay=None, repeat=None, setColour=None, toPercent=None, fromPercent=None):
         repeat = 0 if repeat == None else repeat
         
         repeatStep = 0
@@ -134,7 +134,7 @@ class RainbowEyes:
             self.SaturationGradient(delay,0,0,setColour,toPercent,fromPercent)
 
             #This is the end of the 'do while' loop
-            if(isinstance(repeat,bool)):
+            if(isinstance(repeat, bool)):
                 if(repeat == False): 
                     break
             else:
@@ -144,7 +144,7 @@ class RainbowEyes:
                     repeatStep += 1
 
 
-    def SaveEyeColour(self,hue=None,sat=None):
+    def SaveEyeColour(self, hue=None, sat=None):
         #if none specified, we set the current attributes into the saved
         hue = self.hue if hue == None else hue #set hue to default or specified
         sat = self.sat if sat == None else sat #set sat to default or specified
@@ -153,10 +153,10 @@ class RainbowEyes:
         self.SavedSat = sat
 
     #**  d^-^b GRADIENT EFFECT METHODS d^-^b **#
-    def HueGradient(self,delay=None,repeat=None,hold=None,toColour=None, fromColour=None):
-        if(not isinstance(toColour,float)): #toColour can be inputted as string, float
+    def HueGradient(self, delay=None, repeat=None, hold=None, toColour=None, fromColour=None):
+        if(not isinstance(toColour, float)): #toColour can be inputted as string, float
             toColour = self.__figureOutColour(toColour) #use __figureOutColour to handle alternative types
-        if(not isinstance(fromColour,float)): #fromColour can be inputted as string, float
+        if(not isinstance(fromColour, float)): #fromColour can be inputted as string, float
             fromColour = self.__figureOutColour(fromColour) #use __figureOutColour to handle alternative types
             
         toColour = 1 if toColour == None else toColour
@@ -169,7 +169,7 @@ class RainbowEyes:
         while True: #python do while loop
             print("Loop #"+str(repeatStep))
             #failsafe for bad inputs
-            if (fromColour > toColour): 
+            if (fromColour > toColour):
                 print("You must use ReverseHueColourGradient to go count up from "+str(fromColour)+" to "+str(toColour))
                 break
             self.__SetHue(fromColour)
@@ -200,7 +200,7 @@ class RainbowEyes:
         print("Holding "+str(self.hue)+" for:"+str(hold)+" seconds")
         time.sleep(hold) #keep the last colour for an amount in seconds
 
-    def ReverseHueGradient(self,delay=None,repeat=None,hold=None,toColour=None, fromColour=None):
+    def ReverseHueGradient(self, delay=None, repeat=None, hold=None, toColour=None, fromColour=None):
         if(not isinstance(toColour,float)): #toColour can be inputted as string, float
             toColour = self.__figureOutColour(toColour) #use __figureOutColour to handle alternative types
         if(not isinstance(fromColour,float)): #fromColour can be inputted as string, float
@@ -247,7 +247,7 @@ class RainbowEyes:
         print("Holding for:"+str(hold)+" seconds")
         time.sleep(hold) #keep the last colour for an amount in seconds
 
-    def SaturationGradient(self,delay=None,repeat=None,hold=None,setColour=None,toPercent=None, fromPercent=None):
+    def SaturationGradient(self, delay=None, repeat=None, hold=None, setColour=None, toPercent=None, fromPercent=None):
         delay = 0 if delay == None else delay
         repeat = 0 if repeat == None else repeat
         hold = 0 if hold == None else hold
@@ -297,7 +297,7 @@ class RainbowEyes:
         print("Holding for:"+str(hold)+" seconds")
         time.sleep(hold) #keep the last colour for an amount in seconds
 
-    def ReverseSaturationGradient(self,delay=None,repeat=None,hold=None,setColour=None,toPercent=None, fromPercent=None):
+    def ReverseSaturationGradient(self, delay=None, repeat=None, hold=None, setColour=None, toPercent=None, fromPercent=None):
         delay = 0 if delay == None else delay
         repeat = 0 if repeat == None else repeat
         hold = 0 if hold == None else hold
