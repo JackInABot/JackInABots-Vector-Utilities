@@ -1,17 +1,19 @@
-# JackInABots-Vector-Utilities
+# JackInABots Vector Utilities
 This is a pet project to create some easy to use, pick up and go executable code to utilise Vectors capabilities through the provided SDK.
 
 ## Contents
 1. Installation Info
 1. How To Use
 1. Utilities
-    1.1. RainbowEyes
+    1. RainbowEyes
 
 
 ### 1. Installation Info
 All of the utilities rely on the Vector SDK being operational, ensure that the SDK is working on your device and communicating with your vector before using any of the utilities. [Here is the tutorial provided by Anki to do that](https://developer.anki.com/vector/docs/index.html).
 
-Ultimately, it doesn't matter where you install this repo, the SDK will be initialised by the main.py file. The folder structure and filenames must remain the same for the utilities to work however.
+Right now this repo is under development, and therefore is not available from pip3 or anything like that. Right now the best way is to gain access to the utilities is to implement `sys.path.insert(0, '../JackInABots-Vector-Utilities/Utilities')` into your project main file to have access to the folder (and change the directory string if your project is away from the main.py file which comes with the repo), then all you need to do is import what you want to use from the Utilities folder, like so `import RainbowEyes as rbe`.
+
+I promise I plan to have this available to download via pip3 in the future so stay tuned while I figure that out -_-
 
 ### 2. How To Use Utilities
 The ease of use is the buggest factor of this project, and so the utilities are organisaed into classes which only require you to pass in the reference to the SDK. Heres an example in the case of the RainbowEyes Utility:
@@ -31,7 +33,7 @@ robotEyes.MakeEyesBlue()
 The objects have private methods which handle communication to the SDK, and often provide a suite of functionality which can be switched on and off using the method arguments.
 
 ### 3. Utilities
-#### i RainbowEyes
+#### i. RainbowEyes
 RainbowEyes is a utility to give simple control over vectors eye colour, it can be used to set and hold his eyes a static colour, or to create a gradient of colours which display fluently. 
 #### `MakeEyes<Colour>`
 Firstly it's important to know the range of colours that can be written to Vector. These methods simply set the `self.hue` and the `self.sat` properties of the object and write them to the SDK for you. These include:
@@ -62,6 +64,7 @@ The `justHue` argument can be set to False, in which case the method will also a
 
 The `rangeVal` argument can be used to control the range of random numbers considered for the output.
 
+#### `MakeEyesRainbow(delay,repeat)`
 
 
 
