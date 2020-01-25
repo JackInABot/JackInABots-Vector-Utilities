@@ -10,8 +10,6 @@ class RainbowEyes:
         self.hue = 0 if setHue == None else setHue
         self.sat = 1 if setSat == None else setSat
 
-
-
         self.robot = setRobot
 
     #**  d^-^b SET EYE COLOURS d^-^b **#
@@ -22,79 +20,79 @@ class RainbowEyes:
         self.__SetSat(0)
         self.WriteEyeColour()
 
-    def MakeEyesOrange(self,holdColour=None):
+    def MakeEyesOrange(self):
         #Make eyes change colour
         self.__SetHue(0.05)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesDarkYellow(self,holdColour=None):
+    def MakeEyesDarkYellow(self):
         #Make eyes change colour
         self.__SetHue(0.1)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesYellow(self,holdColour=None):
+    def MakeEyesYellow(self):
         #Make eyes change colour
         self.__SetHue(0.15)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesLightYellow(self,holdColour=None):
+    def MakeEyesLightYellow(self):
         #Make eyes change colour
         self.__SetHue(0.2)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesGreen(self,holdColour=None):
+    def MakeEyesGreen(self):
         #Make eyes change colour
         self.__SetHue(0.3)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesLightGreen(self,holdColour=None):
+    def MakeEyesLightGreen(self):
         #Make eyes change colour
         self.__SetHue(0.4)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesCyan(self,holdColour=None):
+    def MakeEyesCyan(self):
         #Make eyes change colour
         self.__SetHue(0.5)
         self.__SetSat(1)
         self.WriteEyeColour()
     
-    def MakeEyesLightBlue(self,holdColour=None):
+    def MakeEyesLightBlue(self):
         #Make eyes change colour
         self.__SetHue(0.6)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesBlue(self,holdColour=None):
+    def MakeEyesBlue(self):
         #Make eyes change colour
         self.__SetHue(0.65)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesDarkBlue(self,holdColour=None):
+    def MakeEyesDarkBlue(self):
         #Make eyes change colour
         self.__SetHue(0.7)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesPurple(self,holdColour=None):
+    def MakeEyesPurple(self):
         #Make eyes change colour
         self.__SetHue(0.8)
         self.__SetSat(1)
         self.WriteEyeColour()
     
-    def MakeEyesPink(self,holdColour=None):
+    def MakeEyesPink(self):
         #Make eyes change colour
         self.__SetHue(0.9)
         self.__SetSat(1)
         self.WriteEyeColour()
 
-    def MakeEyesRed(self,holdColour=None):
+    def MakeEyesRed(self):
         #Make eyes change colour
         self.__SetHue(1)
         self.__SetSat(1)
@@ -111,7 +109,6 @@ class RainbowEyes:
     def MakeEyesRandom(self,justHue=None,rangeVal=None):
         justHue = True if justHue == None else justHue #set justHue to default or specified
         rangeVal = 100 if rangeVal == None else rangeVal #set rangeVal to default or specified
-
         #Make eyes change colour
         self.__SetHue(random.randrange(rangeVal)/100)
         if(justHue == False): self.__SetSat(random.randrange(rangeVal)/100)
