@@ -21,9 +21,6 @@ Right now this repo is under development, and therefore is not available from pi
 
 I promise I plan to have this available to download via pip3 in the future so stay tuned while I figure that out -_-
 
-## Structure & Quirks
-TBD if this is necessary to explain
-
 ## 2. How To Use Utilities
 The ease of use is the buggest factor of this project, and so the utilities are organisaed into classes which only require you to pass in the reference to the SDK. Heres an example in the case of the RainbowEyes Utility:
 ```python
@@ -63,10 +60,10 @@ Firstly it's important to know the range of colours that can be written to Vecto
 
 These methods are written exactly as presented with no optional arguments available to be passed in.
 
-#### `MakeEyesCustom(hue,saturation)`
+#### `MakeEyesCustom(hue, saturation)`
 If you wish to set your own static colour, there is `MakeEyesCustom()`. It functions the same as the other methods, but is overloaded with optional arguments `hue` and `saturation` which, when passed in, set the `self.hue` and the `self.sat` properties of the object and write them to the SDK for you.
 
-#### `MakeEyesRandom(justHue,rangeVal)`
+#### `MakeEyesRandom(justHue, rangeVal)`
 For fun there is a method which randomizes Vectors eye colour! `MakeEyesRandom()` when called with no arguments, creates a randomised value for the hue to display to vectors eyes.
 
 ##### `justHue`
@@ -75,7 +72,7 @@ For fun there is a method which randomizes Vectors eye colour! `MakeEyesRandom()
 ##### `rangeVal`
 * The `rangeVal` argument can be used to control the range of random numbers considered for the output. `rangeVal` is set to 100 by default and is an optional argument.
 
-#### `MakeEyesRainbow(delay,repeat)`
+#### `MakeEyesRainbow(delay, repeat)`
 RainbowEyes has a capability to gradient Vectors hue and satuation properties. This esestually means that that these properties can climb from 0 to 1 by a value of 0.01 for each loop, and write these values for every step that float value changes. This action cycles through all of the possible colours. This is exactly what `MakeEyesRainbow()` does. It utilises a CORE method `HueGradient()` to create a rainbow effect to his eyes, which cycles through all of the possible colours that Vector can display.
 
 ##### `delay`
@@ -84,7 +81,7 @@ RainbowEyes has a capability to gradient Vectors hue and satuation properties. T
 ##### `repeat`
 * The `repeat` argument allows you to either set a nummber of times you want the loop to repeat represented by an integer value, or `repeat` can be set as a boolean value. When set to False the loop will not repeat, when set to True the method will repeat infinitly. **WARNING Currently the only way to break an infinite loop is with a Ctrl + C Interrupt command in the terminal. This will be changed at a later update I plan to add another Utility which handles security and logging for Vector, stay tuned :)**. `repeat` is set to 0 by default and is an optional argument.
 
-#### `MakeEyesPulse(delay,repeat,setColour,toPercent,fromPercent)`
+#### `MakeEyesPulse(delay, repeat, setColour, toPercent, fromPercent)`
 `MakeEyesPulse` utilises CORE methods `SaturationGradient()` and `ReverseSaturationGradient()` to 'pulse' the saturation value `self.sat` up and then back down by a value of 0.01 each loop. This affect makes vectors eyes go from full colour to no colour (or a lighter shade of the colour depending on the arguments passed in).
 
 ##### `delay`
@@ -101,3 +98,9 @@ RainbowEyes has a capability to gradient Vectors hue and satuation properties. T
 
 ##### `fromPercent`
 * The `fromPercent` argument allows you to define a percentage you want the pulse to start from. Maybe you don't want to start from 0 and have the full colour displayed, and so you could set `fromPercent` to 20 and have the pulse start with self.sat set to 0.2. Then it would loop up by 0.01 per loop all the way up to whatever is set to `toPercent` and then back down. `fromPercent` can be passed as an int or a float value. As an int, `toPercent` must be between 0 & 100 (as its a percentage). As a float value `fromPercent` must be between 0 and 1. `fromPercent` is an optional argument.
+
+#### `SetSavedEyeColour(hue, sat)`
+The RainbowEyes utility comes with a way to save a particular colour with `SetSavedEyeColour()`. By default this method sets the properties `self.SavedHue` and `self.SavedSat` to the current state of the properties `self.hue` and `self.sat`. The arguments `hue` and `sat` can be passed in to save a custom configuration of hue and saturation you wish to save. Unlike the properties `self.hue` and `self.sat`, none of the methods in the `RainbowEyes` class can affect `self.SavedHue` and `self.SavedSat` apart from `SetSavedEyeColour()`
+
+#### `GetSavedEyeColour(whichReturn)`
+`GetSavedEyeColour()` simply returns the current value of either `self.SavedHue` or `self.SavedSat` or both. It depends on the argument `whichReturn` which expects a string value "hue" or "sat" / "saturation" to pick which single property you want returned. Simply call the function without the argument to receive an array containing the value of both properties.
