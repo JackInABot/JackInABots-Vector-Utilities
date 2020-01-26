@@ -143,13 +143,29 @@ class RainbowEyes:
                 else:
                     repeatStep += 1
 
-    def SaveEyeColour(self, hue=None, sat=None):
+    def SetSavedEyeColour(self, hue=None, sat=None):
         #if none specified, we set the current attributes into the saved
         hue = self.hue if hue == None else hue #set hue to default or specified
         sat = self.sat if sat == None else sat #set sat to default or specified
 
         self.SavedHue = hue
         self.SavedSat = sat
+    
+    def GetSavedEyeColour(self,whichReturn=None):
+        whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
+        #returnBoth = [self.SavedHue, self.SavedSat]
+
+        if(whichReturn.lower() == "hue"):
+            return self.SavedHue
+        elif(whichReturn.lower() == "saturation" or whichReturn.lower() == "sat"):
+            return self.SavedSat
+        else:
+            #if we made it this far, well assume user wants both in array
+            return [self.SavedHue, self.SavedSat]
+
+    def WriteEyeColour(self):
+        print("Displaying | Hue: "+str(self.hue) +" | Sat: "+str(self.sat))
+        self.__WriteToRobot()
 
     #**  d^-^b GRADIENT EFFECT METHODS d^-^b **#
     def HueGradient(self, delay=None, repeat=None, hold=None, toColour=None, fromColour=None):
@@ -178,7 +194,7 @@ class RainbowEyes:
                 #step up float values
                 self.__StepUpHue()
                 #write to vector
-                self.__WriteToRobot()
+                WriteEyeColour()
                 #write values for debug
                 print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
@@ -345,11 +361,6 @@ class RainbowEyes:
 
         print("Holding for:"+str(hold)+" seconds")
         time.sleep(hold) #keep the last colour for an amount in seconds
-
-    #** DISPLAY EYE COLOUR d^-^b **#
-    def WriteEyeColour(self):
-        print("Displaying | Hue: "+str(self.hue) +" | Sat: "+str(self.sat))
-        self.__WriteToRobot()
 
     #Private methods for in house use only
     #Setters for colour change

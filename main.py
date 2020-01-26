@@ -21,14 +21,17 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotEyes.MakeEyesWhite()
-            time.sleep(3)
-            #robotEyes.HueGradient(0,0,0,"blue")
+            returnVar = robotEyes.GetSavedEyeColour()
+            print(returnVar)
+            robotEyes.SetSavedEyeColour(0.5,1)
+            returnVar = robotEyes.GetSavedEyeColour()
+            print(returnVar)
 
-            robot.behavior.say_text("This is a test")
             # end test #
             if(forever == False):
                 break
+
+        robot.behavior.say_text("Test Complete")
         print("Test Complete. Returning Vector to his common state...")
         time.sleep(3)
 
