@@ -11,6 +11,8 @@ This is a pet project to create some easy to use, pick up and go executable code
         1. `MakeEyesRandom(justHue,rangeVal)`
         1. `MakeEyesRainbow(delay,repeat)`
         1. `MakeEyesPulse(delay,repeat,setColour,toPercent,fromPercent)`
+        1. `SetSavedEyeColour(hue, sat)`
+        1. `GetSavedEyeColour(whichReturn)`
 
 ## 1. Installation Info
 All of the utilities rely on the Vector SDK being operational, ensure that the SDK is working on your device and communicating with your vector before using any of the utilities. [Here is the tutorial provided by Anki to do that](https://developer.anki.com/vector/docs/index.html).
