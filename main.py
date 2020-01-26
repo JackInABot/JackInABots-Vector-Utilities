@@ -2,8 +2,7 @@ import time
 import sys
 import anki_vector
 #get utility paths
-sys.path.insert(0, '../JackInABots-Vector-Utilities/Utilities')
-import RainbowEyes as rbe
+from Utilities import RainbowEyes as rbe
 
 def main():
     # d^-^b vars for the test d^-^b #
@@ -22,7 +21,7 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotEyes.MakeEyesBlue()
+            robotEyes.MakeEyesWhite()
             time.sleep(3)
             #robotEyes.HueGradient(0,0,0,"blue")
 

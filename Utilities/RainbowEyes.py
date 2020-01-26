@@ -135,14 +135,13 @@ class RainbowEyes:
 
             #This is the end of the 'do while' loop
             if(isinstance(repeat, bool)):
-                if(repeat == False): 
+                if(repeat == False):
                     break
             else:
                 if(repeatStep >= repeat-1):
                     break
                 else:
                     repeatStep += 1
-
 
     def SaveEyeColour(self, hue=None, sat=None):
         #if none specified, we set the current attributes into the saved
