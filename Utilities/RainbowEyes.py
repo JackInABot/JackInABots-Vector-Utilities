@@ -1,7 +1,7 @@
 import time
 import random
 
-#Core functionality class#
+# Core functionality class #
 class RainbowEyesCORE:
     # Constructor sets up the attributes d^-^b #
     def __init__(self, setRobot, setHue=None, setSat=None):
@@ -416,7 +416,6 @@ class RainbowEyes(RainbowEyesCORE):
     
     def GetSavedEyeColour(self,whichReturn=None):
         whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
-        #returnBoth = [self.SavedHue, self.SavedSat]
 
         if(whichReturn.lower() == "hue"):
             return self.SavedHue
