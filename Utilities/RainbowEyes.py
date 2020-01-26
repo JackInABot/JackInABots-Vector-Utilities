@@ -1,9 +1,8 @@
 import time
 import random
 
-class RainbowEyes:
-    SavedHue = 0
-    SavedSat = 0
+#Core functionality class#
+class RainbowEyesCORE:
     # Constructor sets up the attributes d^-^b #
     def __init__(self, setRobot, setHue=None, setSat=None):
         #vars
@@ -11,161 +10,6 @@ class RainbowEyes:
         self.sat = 1 if setSat == None else setSat
 
         self.robot = setRobot
-
-    #**  d^-^b SET EYE COLOURS d^-^b **#
-    #Set colours
-    def MakeEyesWhite(self):
-        #Make eyes change colour
-        self.__SetHue(0)
-        self.__SetSat(0)
-        self.WriteEyeColour()
-
-    def MakeEyesOrange(self):
-        #Make eyes change colour
-        self.__SetHue(0.05)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesDarkYellow(self):
-        #Make eyes change colour
-        self.__SetHue(0.1)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesYellow(self):
-        #Make eyes change colour
-        self.__SetHue(0.15)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesLightYellow(self):
-        #Make eyes change colour
-        self.__SetHue(0.2)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesGreen(self):
-        #Make eyes change colour
-        self.__SetHue(0.3)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesLightGreen(self):
-        #Make eyes change colour
-        self.__SetHue(0.4)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesCyan(self):
-        #Make eyes change colour
-        self.__SetHue(0.5)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesLightBlue(self):
-        #Make eyes change colour
-        self.__SetHue(0.6)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesBlue(self):
-        #Make eyes change colour
-        self.__SetHue(0.65)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesDarkBlue(self):
-        #Make eyes change colour
-        self.__SetHue(0.7)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesPurple(self):
-        #Make eyes change colour
-        self.__SetHue(0.8)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesPink(self):
-        #Make eyes change colour
-        self.__SetHue(0.9)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesRed(self):
-        #Make eyes change colour
-        self.__SetHue(1)
-        self.__SetSat(1)
-        self.WriteEyeColour()
-
-    def MakeEyesCustom(self, hue=None, saturation=None):
-        hue = 0 if hue == None else hue #set hue to default or specified
-        saturation = 1 if saturation == None else saturation #set saturation to default or specified
-        #Make eyes change colour
-        self.__SetHue(hue)
-        self.__SetSat(saturation)
-        self.WriteEyeColour()
-
-    def MakeEyesRandom(self, justHue=None, rangeVal=None):
-        justHue = True if justHue == None else justHue #set justHue to default or specified
-        rangeVal = 100 if rangeVal == None else rangeVal #set rangeVal to default or specified
-        #Make eyes change colour
-        self.__SetHue(random.randrange(rangeVal)/100)
-        if(justHue == False): self.__SetSat(random.randrange(rangeVal)/100)
-        self.WriteEyeColour()
-    
-    def MakeEyesRainbow(self, delay=None, repeat=None):
-        self.__SetSat(1)
-
-        delay = 0 if delay == None else delay
-        repeat = 0 if repeat == None else repeat
-
-        self.HueGradient(delay,repeat)
-
-    def MakeEyesPulse(self, delay=None, repeat=None, setColour=None, toPercent=None, fromPercent=None):
-        repeat = 0 if repeat == None else repeat
-        
-        repeatStep = 0
-        while True: #python do while loop
-            print("Loop #"+str(repeatStep))
-            #Make eyes pulse down
-            self.ReverseSaturationGradient(delay,0,0,setColour,fromPercent,toPercent)
-            #Make eyes pulse up
-            self.SaturationGradient(delay,0,0,setColour,toPercent,fromPercent)
-
-            #This is the end of the 'do while' loop
-            if(isinstance(repeat, bool)):
-                if(repeat == False):
-                    break
-            else:
-                if(repeatStep >= repeat-1):
-                    break
-                else:
-                    repeatStep += 1
-
-    def SetSavedEyeColour(self, hue=None, sat=None):
-        #if none specified, we set the current attributes into the saved
-        hue = self.hue if hue == None else hue #set hue to default or specified
-        sat = self.sat if sat == None else sat #set sat to default or specified
-
-        self.SavedHue = hue
-        self.SavedSat = sat
-    
-    def GetSavedEyeColour(self,whichReturn=None):
-        whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
-        #returnBoth = [self.SavedHue, self.SavedSat]
-
-        if(whichReturn.lower() == "hue"):
-            return self.SavedHue
-        elif(whichReturn.lower() == "saturation" or whichReturn.lower() == "sat"):
-            return self.SavedSat
-        else:
-            #if we made it this far, well assume user wants both in array
-            return [self.SavedHue, self.SavedSat]
-
-    def WriteEyeColour(self):
-        print("Displaying | Hue: "+str(self.hue) +" | Sat: "+str(self.sat))
-        self.__WriteToRobot()
 
     #**  d^-^b GRADIENT EFFECT METHODS d^-^b **#
     def HueGradient(self, delay=None, repeat=None, hold=None, toColour=None, fromColour=None):
@@ -194,7 +38,7 @@ class RainbowEyes:
                 #step up float values
                 self.__StepUpHue()
                 #write to vector
-                WriteEyeColour()
+                self.__WriteToRobot()
                 #write values for debug
                 print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
@@ -426,3 +270,164 @@ class RainbowEyes:
     #Write to robot what colours to display
     def __WriteToRobot(self):
         self.robot.behavior.set_eye_color(hue=self.hue, saturation=self.sat)
+
+# Main utility #
+class RainbowEyes(RainbowEyesCORE):
+    SavedHue = 0
+    SavedSat = 0
+
+    #**  d^-^b SET EYE COLOURS d^-^b **#
+    def MakeEyesWhite(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0)
+        self._RainbowEyesCORE__SetSat(0)
+        self.WriteEyeColour()
+
+    def MakeEyesOrange(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.05)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesDarkYellow(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.1)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesYellow(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.15)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesLightYellow(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.2)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesGreen(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.3)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesLightGreen(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.4)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesCyan(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.5)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesLightBlue(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.6)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesBlue(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.65)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesDarkBlue(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.7)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesPurple(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.8)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesPink(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(0.9)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesRed(self):
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(1)
+        self._RainbowEyesCORE__SetSat(1)
+        self.WriteEyeColour()
+
+    def MakeEyesCustom(self, hue=None, saturation=None):
+        hue = 0 if hue == None else hue #set hue to default or specified
+        saturation = 1 if saturation == None else saturation #set saturation to default or specified
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(hue)
+        self._RainbowEyesCORE__SetSat(saturation)
+        self.WriteEyeColour()
+
+    def MakeEyesRandom(self, justHue=None, rangeVal=None):
+        justHue = True if justHue == None else justHue #set justHue to default or specified
+        rangeVal = 100 if rangeVal == None else rangeVal #set rangeVal to default or specified
+        #Make eyes change colour
+        self._RainbowEyesCORE__SetHue(random.randrange(rangeVal)/100)
+        if(justHue == False): self._RainbowEyesCORE__SetSat(random.randrange(rangeVal)/100)
+        self.WriteEyeColour()
+    
+    def MakeEyesRainbow(self, delay=None, repeat=None):
+        self._RainbowEyesCORE__SetSat(1)
+
+        delay = 0 if delay == None else delay
+        repeat = 0 if repeat == None else repeat
+
+        self.HueGradient(delay,repeat)
+
+    def MakeEyesPulse(self, delay=None, repeat=None, setColour=None, toPercent=None, fromPercent=None):
+        repeat = 0 if repeat == None else repeat
+        
+        repeatStep = 0
+        while True: #python do while loop
+            print("Loop #"+str(repeatStep))
+            #Make eyes pulse down
+            self.ReverseSaturationGradient(delay,0,0,setColour,fromPercent,toPercent)
+            #Make eyes pulse up
+            self.SaturationGradient(delay,0,0,setColour,toPercent,fromPercent)
+
+            #This is the end of the 'do while' loop
+            if(isinstance(repeat, bool)):
+                if(repeat == False):
+                    break
+            else:
+                if(repeatStep >= repeat-1):
+                    break
+                else:
+                    repeatStep += 1
+
+    def SetSavedEyeColour(self, hue=None, sat=None):
+        #if none specified, we set the current attributes into the saved
+        hue = self.hue if hue == None else hue #set hue to default or specified
+        sat = self.sat if sat == None else sat #set sat to default or specified
+
+        self.SavedHue = hue
+        self.SavedSat = sat
+    
+    def GetSavedEyeColour(self,whichReturn=None):
+        whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
+        #returnBoth = [self.SavedHue, self.SavedSat]
+
+        if(whichReturn.lower() == "hue"):
+            return self.SavedHue
+        elif(whichReturn.lower() == "saturation" or whichReturn.lower() == "sat"):
+            return self.SavedSat
+        else:
+            #if we made it this far, well assume user wants both in array
+            return [self.SavedHue, self.SavedSat]
+
+    def WriteEyeColour(self):
+        print("Displaying | Hue: "+str(self.hue) +" | Sat: "+str(self.sat))
+        self._RainbowEyesCORE__WriteToRobot()
+
+
