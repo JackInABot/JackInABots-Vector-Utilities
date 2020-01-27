@@ -21,7 +21,7 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            FullTestRainbowEyes(robotEyes)
+            robotEyes.MakeEyesBlue()
 
             # end test # 
             if(forever == False):

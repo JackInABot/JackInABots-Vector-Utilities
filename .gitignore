@@ -1,0 +1,4 @@
+.vscode
+.settings
+.pylintrc
+__pycache__
