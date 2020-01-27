@@ -58,3 +58,4 @@ target/
 
 #visual studio code path settings
 *.vscode
+*.pylintrc
