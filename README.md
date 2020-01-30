@@ -3,8 +3,11 @@ This is a pet project to create some easy to use, pick up and go executable code
 
 ### Contents
 1. Installation Info
-1. How To Use
-1. Utilities
+1. Quick Start Implementation
+1. What's included
+1. Feedback of any kind
+1. Documentation
+1. Copyright and legal stuffs
 
 
 ## 1. Installation Info
@@ -42,14 +45,16 @@ JackInABots-Vector-Utilities/
     └── Megaphone.py
 ```
 
-## 4. Bugs and feature requests
-You can hopefully reach me on here if you go the the issues tab and speak your mind there. If it isn't set up yet i'm sorry, this is my first git repo.
+## 4. Feedback of any kind
+This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the the issues tab and speak your mind there. If it isn't set up yet i'm sorry, this is my first git repo, I will figure it out soon :)
 
 ## 5. Documentation
 All documentation, including an overview of the utilities and thair purpose, to the intricate details of how all the methods work and what thair arguments do, can be found in the wiki.
 
 ## 6. Copyright and legal stuffs
-All copyright goes to Anki. Ultimately it is their SDK and thair product which gives any power to these utilities. Without either of those things, this project would be completely useless. This project is open source and I encourage people to take it, use it, change / upgrade it to suit your needs for your projects.
+All copyright goes to Anki. As the SDK is freely available I am under the assumption it is allowed to develop software that relies on it. This is a pet project and will not be commercialised or monetised in any way. I am doing this because it is fun! :) 
+
+This project is open for feedback and contribution from others. I encourage people to take it, use it, change / upgrade it to suit your needs for your projects.
 
 
 
