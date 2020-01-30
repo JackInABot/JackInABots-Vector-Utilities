@@ -37,6 +37,7 @@ robotEyes.MakeEyesBlue()
 The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and thair helpful methods, check the wiki!
 
 ## 3. What's included
+The repo currently contains the following:
 ```
 JackInABots-Vector-Utilities/
 ├── main.py/
@@ -44,6 +45,7 @@ JackInABots-Vector-Utilities/
     ├── RainbowEyes.py
     └── Megaphone.py
 ```
+`main.py` is setup to act as a testing environment for the utilites included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the wiki!
 
 ## 4. Feedback of any kind
 This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the the issues tab and speak your mind there. If it isn't set up yet i'm sorry, this is my first git repo, I will figure it out soon :)
@@ -55,10 +57,3 @@ All documentation, including an overview of the utilities and thair purpose, to 
 All copyright goes to Anki. As the SDK is freely available I am under the assumption it is allowed to develop software that relies on it. This is a pet project and will not be commercialised or monetised in any way. I am doing this because it is fun! :) 
 
 This project is open for feedback and contribution from others. I encourage people to take it, use it, change / upgrade it to suit your needs for your projects.
-
-
-
-
-
-
-
