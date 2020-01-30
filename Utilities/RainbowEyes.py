@@ -414,7 +414,7 @@ class RainbowEyes(RainbowEyesCORE):
         self.SavedHue = hue
         self.SavedSat = sat
     
-    def GetSavedEyeColour(self,whichReturn=None):
+    def GetSavedEyeColour(self, whichReturn=None):
         whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
 
         if(whichReturn.lower() == "hue"):
