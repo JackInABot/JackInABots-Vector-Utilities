@@ -20,7 +20,7 @@ Right now this repo is under development, and therefore is not available from pi
 I promise I plan to have this available to download via pip3 in the future so stay tuned while I figure that out -_-
 
 ## 2. Quick Start Implementation
-The ease of use is the buggest factor of this project, and so the utilities are organisaed into classes which only require you to pass the reference of the SDK into the object initialisation. Here's an example of how to initialise a utility object, in this example we're initiating the RainbowEyes utility:
+The ease of use is the biggest factor of this project, and so the utilities are organised into classes which only require you to pass the reference of the SDK into the object initialisation. Here's an example of how to initialise a utility object, in this example we're initiating the RainbowEyes utility:
 ```python
 from Utilities import RainbowEyes as rbe #from Utilities import <Utility-File> as <class-ref>
 
@@ -30,11 +30,11 @@ with anki_vector.Robot(args.serial) as robot: #SDK setup
 ```
 The two lines below the import were extracted directly from the vector tutorial scripts provided by the SDK (which I hope you've seen already) and so instead of writing directly to that robot object, we simply pass it into the Utility we are planning to use.
 
-The next step is easy, just use the initiated objects methods, (in our example, thats 'robotEyes') like so:
+The next step is easy, just use the initiated objects methods, (in our example, that’s 'robotEyes') like so:
 ```python
 robotEyes.MakeEyesBlue()
 ```
-The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and thair helpful methods, check the wiki!
+The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and their helpful methods, check the wiki!
 
 ## 3. What's included
 The repo currently contains the following:
@@ -45,13 +45,13 @@ JackInABots-Vector-Utilities/
     ├── RainbowEyes.py
     └── Megaphone.py
 ```
-`main.py` is setup to act as a testing environment for the utilites included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the wiki!
+`main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the wiki!
 
 ## 4. Feedback of any kind
-This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the the issues tab and speak your mind there. If it isn't set up yet i'm sorry, this is my first git repo, I will figure it out soon :)
+This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the issues tab and speak your mind there. If it isn't set up yet I’m sorry, this is my first git repo, I will figure it out soon :)
 
 ## 5. Documentation
-All documentation, including an overview of the utilities and thair purpose, to the intricate details of how all the methods work and what thair arguments do, can be found in the wiki.
+All documentation, including an overview of the utilities and their purpose, to the intricate details of how all the methods work and what their arguments do, can be found in the wiki.
 
 ## 6. Copyright and legal stuffs
 All copyright goes to Anki. As the SDK is freely available I am under the assumption it is allowed to develop software that relies on it. This is a pet project and will not be commercialised or monetised in any way. I am doing this because it is fun! :) 
