@@ -39,8 +39,6 @@ class RainbowEyesCORE:
                 self.__StepUpHue()
                 #write to vector
                 self.__WriteToRobot()
-                #write values for debug
-                print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
                 step += 1
                 #apply delay
@@ -86,8 +84,6 @@ class RainbowEyesCORE:
                 self.__StepDownHue()
                 #write to vector
                 self.__WriteToRobot()
-                #write values for debug
-                print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
                 step += 1
                 #check if delay and apply
@@ -136,8 +132,6 @@ class RainbowEyesCORE:
                 self.__StepUpSat()
                 #write to vector
                 self.__WriteToRobot()
-                #write values for debug
-                print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
                 step += 1
                 #check if delay and apply
@@ -186,8 +180,6 @@ class RainbowEyesCORE:
                 self.__StepDownSat()
                 #write to vector
                 self.__WriteToRobot()
-                #write values for debug
-                print("["+str(step)+"] Hue: "+str(self.hue)+" Sat: "+str(self.sat))
                 #ensure this loop is counted
                 step += 1
                 #check if delay and apply

@@ -8,7 +8,7 @@ class Megaphone:
         #setup sdk ref
         self.robot = setRobot
 
-    def SaySomthing(self, words=None):
+    def Say(self, words=None):
         #setup default words
         defaultWords = "try inserting a string into the method"
         #detect EasterEgg
@@ -33,7 +33,7 @@ class Megaphone:
         if(filePath != ""): fileName = filePath + fileName
         self.__StreamAudio(fileName, volume)
 
-    def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None, randomizeDelay=None):
+    def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None):
         volume = 80 if volume == None else volume
         limit = 0 if limit == None else limit
         delay = 0 if delay == None else delay
@@ -52,9 +52,6 @@ class Megaphone:
 
         for audio in audioList:
             self.__StreamAudio(audio, volume)
-
-            if(randomizeDelay == True):
-                random.randint(1,4)
             time.sleep(delay)
 
     def __WriteToRobotWords(self, words):

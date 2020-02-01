@@ -19,9 +19,9 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            #robotVoice.PlayAudioList("Utilities/Audio/R2D2/", 80, 3, True, 10, True)
+            robotVoice.PlayAudioList("Utilities/Audio/R2D2/", 80, 3, True, 3)
 
-            robotEyes.MakeEyesRainbow()
+            #robotEyes.MakeEyesRainbow(0,True)
             # end test # 
             if(forever == False):
                 break
