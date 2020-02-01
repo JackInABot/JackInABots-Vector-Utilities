@@ -23,19 +23,39 @@ class Megaphone:
     def PlayAudioFile(self, fileName, filePath=None, volume=None):
         volume = 80 if volume == None else volume
         filePath = "" if filePath == None or filePath == 0 else filePath
+
         #checks
         if(fileName == None):
-            print("Var 'fileName' cannot be none before writing to robot")
+            print("Var 'fileName' cannot be None before writing to robot")
             return
+
         #if filepath not None we add it to fileName
         if(filePath != ""): fileName = filePath + fileName
         self.__StreamAudio(fileName, volume)
 
-    def PlayAudioList(self, folderPath, volume):
-        folderPath = folderPath + "*.wav" #*.wav makes glob know what files to look for        audioList = glob.glob(folderPath)
-        print(audioList)
+    def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None, randomizeDelay=None):
+        volume = 80 if volume == None else volume
+        limit = 0 if limit == None else limit
+        delay = 0 if delay == None else delay
+        randomizeList = False if randomizeList == None else randomizeList
+
+        #change string if necessary
+        folderPath = self.__figureOutPath(folderPath)
+        #get full folder list
+        audioList = glob.glob(folderPath)
+        #randomize handler
+        if(randomizeList == True):
+            random.shuffle(audioList)
+        #limit handler
+        if(limit != 0):
+            audioList = self.__limitHandler(audioList, limit)
+
         for audio in audioList:
             self.__StreamAudio(audio, volume)
+
+            if(randomizeDelay == True):
+                random.randint(1,4)
+            time.sleep(delay)
 
     def __WriteToRobotWords(self, words):
         if(words == None):
@@ -54,4 +74,21 @@ class Megaphone:
             return
         #write to robot
         self.robot.audio.stream_wav_file(audoName, volume)
+
+    def __limitHandler(self, audioList, limit):
+        i = 0
+        limitList = []
+        for audio in audioList:
+            if(i >= limit): break
+            limitList.append(audio)
+            i += 1
+
+        return limitList
+
+    def __figureOutPath(self, folderPath):
+        #*.wav lets glob know what file type to look for, it needs to be in the string
+        if("*.wav" in folderPath):
+            return folderPath
+        else:
+            return folderPath + "*.wav"
 

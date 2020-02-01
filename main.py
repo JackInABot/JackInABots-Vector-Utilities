@@ -19,7 +19,7 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotVoice.PlayAudioList("Utilities/Audio/R2D2/", 80)
+            robotVoice.PlayAudioList("Utilities/Audio/R2D2/", 80, 3, True, 10, True)
 
             # end test # 
             if(forever == False):
