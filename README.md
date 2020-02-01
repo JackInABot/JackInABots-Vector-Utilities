@@ -34,7 +34,7 @@ The next step is easy, just use the initiated objects methods, (in our example, 
 ```python
 robotEyes.MakeEyesBlue()
 ```
-The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and their helpful methods, check the wiki!
+The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and their helpful methods, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
 ## 3. What's included
 The repo currently contains the following:
@@ -45,13 +45,13 @@ JackInABots-Vector-Utilities/
     ├── RainbowEyes.py
     └── Megaphone.py
 ```
-`main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the wiki!
+`main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
 ## 4. Feedback of any kind
 This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the issues tab and speak your mind there. If it isn't set up yet I’m sorry, this is my first git repo, I will figure it out soon :)
 
 ## 5. Documentation
-All documentation, including an overview of the utilities and their purpose, to the intricate details of how all the methods work and what their arguments do, can be found in the wiki.
+All documentation, including an overview of the utilities and their purpose, to the intricate details of how all the methods work and what their arguments do, can be found in the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki).
 
 ## 6. Copyright and legal stuffs
 All copyright goes to Anki. As the SDK is freely available I am under the assumption it is allowed to develop software that relies on it. This is a pet project and will not be commercialised or monetised in any way. I am doing this because it is fun! :) 
