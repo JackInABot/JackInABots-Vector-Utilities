@@ -20,18 +20,15 @@ class Megaphone:
 
         self.__WriteToRobotWords(words)
 
-    def PlayAudioFile(self, fileName, filePath=None, volume=None):
+    def PlayAudioFile(self, fileOrPath=None, volume=None):
         volume = 80 if volume == None else volume
-        filePath = "" if filePath == None or filePath == 0 else filePath
 
         #checks
-        if(fileName == None):
-            print("Var 'fileName' cannot be None before writing to robot")
+        if(fileOrPath == None):
+            print("Var 'fileOrPath' cannot be None before writing to robot")
             return
 
-        #if filepath not None we add it to fileName
-        if(filePath != ""): fileName = filePath + fileName
-        self.__StreamAudio(fileName, volume)
+        self.__StreamAudio(fileOrPath, volume)
 
     def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None):
         volume = 80 if volume == None else volume
