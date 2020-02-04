@@ -15,10 +15,15 @@ class Megaphone:
         if(isinstance(words,str)):
             if(words.lower() == "try inserting a string into the method"):
                 words = "very funny"
-        #setup words
-        words = defaultWords if words == None or not isinstance(words,str) else words
 
-        self.__WriteToRobotWords(words)
+        #setup words if none
+        words = defaultWords if words == None else words
+
+        if(isinstance(words,list)):
+            for word in words:
+                self.__WriteToRobotWords(word)
+        else:
+            self.__WriteToRobotWords(words)
 
     def PlayAudioFile(self, filePath, volume=None):
         volume = 80 if volume == None else volume
