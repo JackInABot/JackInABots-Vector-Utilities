@@ -34,7 +34,7 @@ class Megaphone:
             return
 
         #change string if necessary
-        filePath = self.__figureOutFolderPath(filePath)
+        filePath = self.__figureOutFilePath(filePath)
 
         self.__StreamAudio(filePath, volume)
 
@@ -114,5 +114,8 @@ class Megaphone:
         if("*.wav" in folderPath):
             return folderPath
         else:
-            return folderPath + "*.wav"
+            if folderPath.endswith('/'):
+                return folderPath + "*.wav"
+            else:
+                return folderPath + "/*.wav"
 
