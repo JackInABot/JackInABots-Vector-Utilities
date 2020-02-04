@@ -41,9 +41,15 @@ The repo currently contains the following:
 ```
 JackInABots-Vector-Utilities/
 ├── main.py/
-└── Utilities/
-    ├── RainbowEyes.py
-    └── Megaphone.py
+├── Utilities/
+|   ├── RainbowEyes.py
+|   └── Megaphone.py
+└── Examples/
+    ├ HAL_9000_impression.py
+    └─ Audio/
+        └─ HAL 9000
+            └─ hal_quote.wav
+    
 ```
 `main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
