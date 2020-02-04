@@ -28,10 +28,13 @@ class Megaphone:
     def PlayAudioFile(self, filePath, volume=None):
         volume = 80 if volume == None else volume
 
-        #checks
-        if(filePath == None or not isinstance(words,str)):
-            print("Argument 'filePath' must be a string of the path which leads to the audio file you wish to write to Vector")
+        #warn of bad inputs
+        filePath = self.__checkValidfPath(filePath)
+        if(filePath == "bad input"):
             return
+
+        #change string if necessary
+        filePath = self.__figureOutFolderPath(filePath)
 
         self.__StreamAudio(filePath, volume)
 
@@ -41,8 +44,12 @@ class Megaphone:
         delay = 0 if delay == None else delay
         randomizeList = False if randomizeList == None else randomizeList
 
+        #warn of bad inputs
+        folderPath = self.__checkValidfPath(folderPath)
+        if(folderPath == "bad input"):
+            return
         #change string if necessary
-        folderPath = self.__figureOutPath(folderPath)
+        folderPath = self.__figureOutFolderPath(folderPath)
         #get full folder list
         audioList = glob.glob(folderPath)
         #randomize handler
@@ -84,7 +91,25 @@ class Megaphone:
 
         return limitList
 
-    def __figureOutPath(self, folderPath):
+    def __checkValidfPath(self, pathVar):
+        #checks
+        if(pathVar == None or not isinstance(pathVar,str)):
+            print("Argument must be a string of the path which leads to the audio file you wish to write to Vector")
+            return "bad input"
+        if('/' not in pathVar):
+            print("Argument doesn't look like a path. Expecting: '/Folder/Subfolder/Audio.wav' for example.")
+            return "bad input"
+        #if we get here, all systems go!
+        return pathVar
+
+    def __figureOutFilePath(self, filePath):
+        #*.wav lets glob know what file type to look for, it needs to be in the string
+        if(".wav" in filePath):
+            return filePath
+        else:
+            return filePath + ".wav"
+
+    def __figureOutFolderPath(self, folderPath):
         #*.wav lets glob know what file type to look for, it needs to be in the string
         if("*.wav" in folderPath):
             return folderPath

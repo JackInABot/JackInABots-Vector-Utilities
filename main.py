@@ -22,7 +22,9 @@ def main():
             #robotEyes.MakeEyesRainbow(0.1, 10)
             listVal = ["I wish you wasn't so loud","So that I couldn't hear you", "24/7 through the wall"]
 
-            robotVoice.Say()
+            #robotVoice.Say()
+            #robotVoice.PlayAudioFile("sduohscoshc",10)
+            #robotVoice.PlayAudioList(False,80)
             # end test # 
             if(forever == False):
                 break
