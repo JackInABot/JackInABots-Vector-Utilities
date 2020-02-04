@@ -25,7 +25,7 @@ def main():
         time.sleep(1)
         robotVoice.PlayAudioFile("../JackInABots-Vector-Utilities/Examples/Audio/HAL 9000/hal_quote.wav", 100)
         robotEyes.MakeEyesLightBlue()
-        robotVoice.Say("Now THAT, was convincing!")
+        robotVoice.Say("Now THAT, was very convincing!")
 
 
     print("Ending example. Returning Vector to his common state... \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")

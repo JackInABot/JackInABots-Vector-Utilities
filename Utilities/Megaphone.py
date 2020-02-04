@@ -16,19 +16,19 @@ class Megaphone:
             if(words.lower() == "try inserting a string into the method"):
                 words = "very funny"
         #setup words
-        words = defaultWords if words == None else words
+        words = defaultWords if words == None or not isinstance(words,str) else words
 
         self.__WriteToRobotWords(words)
 
-    def PlayAudioFile(self, fileOrPath=None, volume=None):
+    def PlayAudioFile(self, filePath, volume=None):
         volume = 80 if volume == None else volume
 
         #checks
-        if(fileOrPath == None):
-            print("Var 'fileOrPath' cannot be None before writing to robot")
+        if(filePath == None or not isinstance(words,str)):
+            print("Argument 'filePath' must be a string of the path which leads to the audio file you wish to write to Vector")
             return
 
-        self.__StreamAudio(fileOrPath, volume)
+        self.__StreamAudio(filePath, volume)
 
     def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None):
         volume = 80 if volume == None else volume

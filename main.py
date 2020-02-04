@@ -7,7 +7,7 @@ from Utilities import Megaphone as megPhone
 
 def main():
     # d^-^b vars for the test d^-^b #
-    forever = False
+    forever = True
 
     args = anki_vector.util.parse_command_args()
     with anki_vector.Robot(args.serial) as robot:
@@ -19,9 +19,8 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotVoice.PlayAudioList("Utilities/Audio/R2D2/", 80, 3, True, 3)
-            
-            #robotEyes.MakeEyesRainbow(0,True)
+            robotEyes.MakeEyesRainbow(0.1, 10)
+
             # end test # 
             if(forever == False):
                 break
