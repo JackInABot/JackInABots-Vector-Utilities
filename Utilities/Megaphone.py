@@ -2,6 +2,7 @@ import time
 import random
 import glob
 import os
+from anki_vector import audio
 
 class Megaphone:
     # Constructor sets up the attributes d^-^b #
@@ -39,7 +40,7 @@ class Megaphone:
         if(filePath == "bad input"):
             return
 
-        self.__StreamAudio(filePath, volume)
+        self.__WriteToRobotStreamAudio(filePath, volume)
 
     def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None):
         volume = 80 if volume == None else volume
@@ -63,8 +64,18 @@ class Megaphone:
             audioList = self.__limitHandler(audioList, limit)
 
         for audio in audioList:
-            self.__StreamAudio(audio, volume)
+            self.__WriteToRobotStreamAudio(audio, volume)
             time.sleep(delay)
+
+    def SetGlobalVolume(self, volume):
+        volume = self.__FigureOutSetVolume(volume)
+        #check for bad inputs
+        if(volume == "bad input"):
+            print("Insert a number 1 - 5 to set volume. 1 being LOW and 5 being HIGH.")
+            print("Or insert string: LOW, MEDIUM LOW, MEDIUM, MEDIUM HIGH, HIGH to set volume")
+            return
+        
+        self.__WriteToRobotMasterVolume(volume)
 
     def __WriteToRobotWords(self, words):
         if(words == None):
@@ -73,7 +84,7 @@ class Megaphone:
 
         self.robot.behavior.say_text(words)
 
-    def __StreamAudio(self, audoName, volume):
+    def __WriteToRobotStreamAudio(self, audoName, volume):
         #checks
         if(audoName == None or volume == None):
             print("audio file name and/or voume var cannot be None before writing to robot")
@@ -83,6 +94,14 @@ class Megaphone:
             return
         #write to robot
         self.robot.audio.stream_wav_file(audoName, volume)
+
+    def __WriteToRobotMasterVolume(self, volume):
+        #standerd checks
+        if(volume == None):
+            print("volume var cannot be None before writing to robot")
+            return
+        
+        self.robot.audio.set_master_volume(volume)
 
     def __limitHandler(self, audioList, limit):
         i = 0
@@ -105,6 +124,44 @@ class Megaphone:
                 return "bad input"
         #if we get here, all systems go!
         return pathVar
+
+
+    def __FigureOutSetVolume(self, volume):
+        #1 = LOW, 2 = MEDIUM LOW, 3 = MEDIUM, 4 = MEDIUM HIGH, 5 = HIGH
+        
+        #figure out bad inputs
+        if(isinstance(volume,int)):
+            if(volume < 0 or volume > 5):
+                return "bad input"
+
+        if(isinstance(volume,str)):
+            #bit of string handling for fair comparison
+            volume.lower()
+            volume.replace(" ", "")
+            #do checks
+            if(volume == "low"): volume = 1
+            elif(volume == "mediumlow"): volume = 2
+            elif(volume == "medium"): volume = 3
+            elif(volume == "mediumhigh"): volume = 4
+            elif(volume == "high"): volume = 5
+            else: return "bad input"
+        
+        #if we made it here, figure it out
+        if(volume == 1):
+            return audio.RobotVolumeLevel.LOW
+        elif(volume == 2):
+            return audio.RobotVolumeLevel.MEDIUM_LOW
+        elif(volume == 3):
+            return audio.RobotVolumeLevel.MEDIUM
+        elif(volume == 4):
+            return audio.RobotVolumeLevel.MEDIUM_HIGH
+        elif(volume == 5):
+            return audio.RobotVolumeLevel.HIGH
+        else:
+            #input must not be an int or a string
+            return "bad input"
+
+
 
     # format string to get single
     def __figureOutFilePath(self, filePath):

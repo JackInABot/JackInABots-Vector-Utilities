@@ -20,8 +20,7 @@ def main():
         while True:
             # d^-^b Test Contents d^-^b #
             #robotEyes.MakeEyesRainbow(0.1, 10)
-            #robotVoice.Say()
-            robotVoice.PlayAudioFile("../JackInABots-Vector-Utilities/Examples/Audio/French numbers/",100)
+            robotVoice.Say()
             #robotVoice.PlayAudioList(False,80)
             # end test # 
             if(forever == False):
