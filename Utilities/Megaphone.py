@@ -1,6 +1,7 @@
 import time
 import random
 import glob
+import os
 
 class Megaphone:
     # Constructor sets up the attributes d^-^b #
@@ -35,6 +36,8 @@ class Megaphone:
 
         #change string if necessary
         filePath = self.__figureOutFilePath(filePath)
+        if(filePath == "bad input"):
+            return
 
         self.__StreamAudio(filePath, volume)
 
@@ -97,24 +100,37 @@ class Megaphone:
             print("Argument must be a string of the path which leads to the audio file you wish to write to Vector")
             return "bad input"
         if('/' not in pathVar):
-            print("Argument doesn't look like a path. Expecting: '/Folder/Subfolder/Audio.wav' for example.")
-            return "bad input"
+            if('\\' not in pathVar):
+                print("Argument doesn't look like a path. Expecting: '/Folder/Subfolder/Audio.wav' for example.")
+                return "bad input"
         #if we get here, all systems go!
         return pathVar
 
+    # format string to get single
     def __figureOutFilePath(self, filePath):
-        #*.wav lets glob know what file type to look for, it needs to be in the string
+        #if file doesn't appear to present, try to get it.
+        if filePath.endswith('/') or filePath.endswith('\\'):
+            print("File doesn't seem to be included in the path. Attempting to grab it from whats specified.")
+            file = os.listdir(filePath)[0]
+            if(file == None):
+                print("Couldn't find a file in the path specified")
+                return "bad input"
+            else:
+                filePath = filePath+file
+
+        #catch if extension not present and add if needed
         if(".wav" in filePath):
             return filePath
         else:
             return filePath + ".wav"
 
+    # format string to get multiple
     def __figureOutFolderPath(self, folderPath):
         #*.wav lets glob know what file type to look for, it needs to be in the string
         if("*.wav" in folderPath):
             return folderPath
         else:
-            if folderPath.endswith('/'):
+            if folderPath.endswith('/') or folderPath.endswith('\\'):
                 return folderPath + "*.wav"
             else:
                 return folderPath + "/*.wav"

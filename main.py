@@ -21,12 +21,12 @@ def main():
             # d^-^b Test Contents d^-^b #
             #robotEyes.MakeEyesRainbow(0.1, 10)
             #robotVoice.Say()
-            robotVoice.PlayAudioList("../JackInABots-Vector-Utilities/Examples/Audio/French numbers",100)
+            robotVoice.PlayAudioFile("../JackInABots-Vector-Utilities/Examples/Audio/French numbers/",100)
             #robotVoice.PlayAudioList(False,80)
             # end test # 
             if(forever == False):
                 break
-
+        
         #robot.behavior.say_text("Test Complete")
         print("Test Complete. Returning Vector to his common state... \n\n\n\n\n")
         time.sleep(3)
