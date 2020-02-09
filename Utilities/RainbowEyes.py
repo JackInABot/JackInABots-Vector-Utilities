@@ -266,8 +266,8 @@ class RainbowEyesCORE:
 
 # Main utility #
 class RainbowEyes(RainbowEyesCORE):
-    SavedHue = 0
-    SavedSat = 0
+    saved_hue = 0
+    saved_sat = 0
 
     #**  d^-^b SET EYE COLOURS d^-^b **#
     def make_eyes_white(self):
@@ -360,8 +360,8 @@ class RainbowEyes(RainbowEyesCORE):
         saturation = self.sat if saturation == None else saturation
 
         if(write_saved):
-            self.hue = self.SavedHue
-            self.sat = self.SavedSat
+            self.hue = self.saved_hue
+            self.sat = self.saved_sat
         else:
             self.hue = hue
             self.sat = saturation
@@ -410,18 +410,18 @@ class RainbowEyes(RainbowEyesCORE):
         hue = self.hue if hue == None else hue #set hue to default or specified
         sat = self.sat if sat == None else sat #set sat to default or specified
 
-        self.SavedHue = hue
-        self.SavedSat = sat
+        self.saved_hue = hue
+        self.saved_sat = sat
     
     def get_saved_eye_colour(self, which_return=None):
         which_return = "" if which_return == None else which_return #empty string means neither
 
         if(which_return.lower() == "hue"):
-            return self.SavedHue
+            return self.saved_hue
         elif(which_return.lower() == "saturation" or which_return.lower() == "sat"):
-            return self.SavedSat
+            return self.saved_sat
         else:
             #if we made it this far, well assume user wants both in array
-            return [self.SavedHue, self.SavedSat]
+            return [self.saved_hue, self.saved_sat]
 
 
