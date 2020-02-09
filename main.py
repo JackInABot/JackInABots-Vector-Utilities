@@ -19,12 +19,8 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            with anki_vector.Robot() as robot:
-                print("List all animation trigger names:")
-                anim_trigger_names = robot.anim.anim_trigger_list
-                for anim_trigger_name in anim_trigger_names:
-                    print(anim_trigger_name)
-
+            robotEyes.make_eyes_rainbow(0,3)
+            time.sleep(1)
             # end test # 
             if(forever == False):
                 break
@@ -32,11 +28,6 @@ def main():
         #robot.behavior.say_text("Test Complete")
         print("Test Complete. Returning Vector to his common state... \n\n\n\n\n")
         time.sleep(3)
-
-def setupType1(funcRef):
-    args = anki_vector.util.parse_command_args()
-    with anki_vector.Robot(args.serial) as robot:
-        funcRef()
 
 
 if __name__ == '__main__':
