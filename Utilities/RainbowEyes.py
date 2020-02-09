@@ -354,12 +354,12 @@ class RainbowEyes(RainbowEyesCORE):
         self._RainbowEyesCORE__set_sat(1)
         self._RainbowEyesCORE__write_to_robot()
 
-    def make_eyes_custom(self, writeSaved, hue=None, saturation=None):
-        writeSaved = False if writeSaved == None else writeSaved
+    def make_eyes_custom(self, write_saved, hue=None, saturation=None):
+        write_saved = False if write_saved == None else write_saved
         hue = self.hue if hue == None else hue
         saturation = self.sat if saturation == None else saturation
 
-        if(writeSaved):
+        if(write_saved):
             self.hue = self.SavedHue
             self.sat = self.SavedSat
         else:
@@ -368,12 +368,12 @@ class RainbowEyes(RainbowEyesCORE):
 
         self._RainbowEyesCORE__write_to_robot()
 
-    def make_eyes_random(self, justHue=None, rangeVal=None):
-        justHue = True if justHue == None else justHue #set justHue to default or specified
-        rangeVal = 100 if rangeVal == None else rangeVal #set rangeVal to default or specified
+    def make_eyes_random(self, just_hue=None, range_val=None):
+        just_hue = True if just_hue == None else just_hue #set just_hue to default or specified
+        range_val = 100 if range_val == None else range_val #set range_val to default or specified
         #Make eyes change colour
-        self._RainbowEyesCORE__set_hue(random.randrange(rangeVal)/100)
-        if(justHue == False): self._RainbowEyesCORE__set_sat(random.randrange(rangeVal)/100)
+        self._RainbowEyesCORE__set_hue(random.randrange(range_val)/100)
+        if(just_hue == False): self._RainbowEyesCORE__set_sat(random.randrange(range_val)/100)
         self._RainbowEyesCORE__write_to_robot()
     
     def make_eyes_rainbow(self, delay=None, repeat=None):
@@ -413,12 +413,12 @@ class RainbowEyes(RainbowEyesCORE):
         self.SavedHue = hue
         self.SavedSat = sat
     
-    def get_saved_eye_colour(self, whichReturn=None):
-        whichReturn = "" if whichReturn == None else whichReturn #empty string means neither
+    def get_saved_eye_colour(self, which_return=None):
+        which_return = "" if which_return == None else which_return #empty string means neither
 
-        if(whichReturn.lower() == "hue"):
+        if(which_return.lower() == "hue"):
             return self.SavedHue
-        elif(whichReturn.lower() == "saturation" or whichReturn.lower() == "sat"):
+        elif(which_return.lower() == "saturation" or which_return.lower() == "sat"):
             return self.SavedSat
         else:
             #if we made it this far, well assume user wants both in array
