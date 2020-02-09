@@ -13,7 +13,7 @@ def main():
         robotEyes = rbe.RainbowEyes(robot)
         robotVoice = megPhone.Megaphone(robot)
 
-        robotVoice.PlayAudioList("../JackInABots-Vector-Utilities/Examples/Audio/French numbers",100)
+        robotVoice.play_audio_list("../JackInABots-Vector-Utilities/Examples/Audio/French numbers",100)
 
         print("Ending example. Returning Vector to his common state... \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         time.sleep(1)

@@ -6,11 +6,11 @@ from anki_vector import audio
 
 class Megaphone:
     # Constructor sets up the attributes d^-^b #
-    def __init__(self, setRobot):
+    def __init__(self, set_robot):
         #setup sdk ref
-        self.robot = setRobot
+        self.robot = set_robot
 
-    def Say(self, words=None):
+    def say(self, words=None):
         #setup default words
         defaultWords = "try inserting a string into the method"
         #detect EasterEgg
@@ -23,79 +23,79 @@ class Megaphone:
 
         if(isinstance(words,list)):
             for word in words:
-                self.__WriteToRobotWords(word)
+                self.__write_to_robot_words(word)
         else:
-            self.__WriteToRobotWords(words)
+            self.__write_to_robot_words(words)
 
-    def PlayAudioFile(self, filePath, volume=None):
+    def play_audio_file(self, file_path, volume=None):
         volume = 80 if volume == None else volume
 
         #warn of bad inputs
-        filePath = self.__checkValidfPath(filePath)
-        if(filePath == "bad input"):
+        file_path = self.__check_valid_path(file_path)
+        if(file_path == "bad input"):
             return
 
         #change string if necessary
-        filePath = self.__figureOutFilePath(filePath)
-        if(filePath == "bad input"):
+        file_path = self.__figure_out_file_path(file_path)
+        if(file_path == "bad input"):
             return
 
-        self.__WriteToRobotStreamAudio(filePath, volume)
+        self.__write_to_robot_stream_audio(file_path, volume)
 
-    def PlayAudioList(self, folderPath, volume=None, limit=None, randomizeList=None, delay=None):
+    def play_audio_list(self, folder_path, volume=None, limit=None, randomize_list=None, delay=None):
         volume = 80 if volume == None else volume
         limit = 0 if limit == None else limit
         delay = 0 if delay == None else delay
-        randomizeList = False if randomizeList == None else randomizeList
+        randomize_list = False if randomize_list == None else randomize_list
 
         #warn of bad inputs
-        folderPath = self.__checkValidfPath(folderPath)
-        if(folderPath == "bad input"):
+        folder_path = self.__check_valid_path(folder_path)
+        if(folder_path == "bad input"):
             return
         #change string if necessary
-        folderPath = self.__figureOutFolderPath(folderPath)
+        folder_path = self.__figure_out_folder_path(folder_path)
         #get full folder list
-        audioList = glob.glob(folderPath)
+        audio_list = glob.glob(folder_path)
         #randomize handler
-        if(randomizeList == True):
-            random.shuffle(audioList)
+        if(randomize_list == True):
+            random.shuffle(audio_list)
         #limit handler
         if(limit != 0):
-            audioList = self.__limitHandler(audioList, limit)
+            audio_list = self.__limit_handler(audio_list, limit)
 
-        for audio in audioList:
-            self.__WriteToRobotStreamAudio(audio, volume)
+        for audio in audio_list:
+            self.__write_to_robot_stream_audio(audio, volume)
             time.sleep(delay)
 
-    def SetGlobalVolume(self, volume):
-        volume = self.__FigureOutSetVolume(volume)
+    def set_global_volume(self, volume):
+        volume = self.__figure_out_set_volume(volume)
         #check for bad inputs
         if(volume == "bad input"):
             print("Insert a number 1 - 5 to set volume. 1 being LOW and 5 being HIGH.")
             print("Or insert string: LOW, MEDIUM LOW, MEDIUM, MEDIUM HIGH, HIGH to set volume")
             return
         
-        self.__WriteToRobotMasterVolume(volume)
+        self.__write_to_robot_master_volume(volume)
 
-    def __WriteToRobotWords(self, words):
+    def __write_to_robot_words(self, words):
         if(words == None):
             print("Var 'words' cannot be none before writing to robot")
             return
 
         self.robot.behavior.say_text(words)
 
-    def __WriteToRobotStreamAudio(self, audoName, volume):
+    def __write_to_robot_stream_audio(self, audo_name, volume):
         #checks
-        if(audoName == None or volume == None):
+        if(audo_name == None or volume == None):
             print("audio file name and/or voume var cannot be None before writing to robot")
             return
         if(not isinstance(volume,int) or volume < 0 or volume > 100):
             print("Volume must be between 0 - 100")
             return
         #write to robot
-        self.robot.audio.stream_wav_file(audoName, volume)
+        self.robot.audio.stream_wav_file(audo_name, volume)
 
-    def __WriteToRobotMasterVolume(self, volume):
+    def __write_to_robot_master_volume(self, volume):
         #standerd checks
         if(volume == None):
             print("volume var cannot be None before writing to robot")
@@ -103,30 +103,30 @@ class Megaphone:
         
         self.robot.audio.set_master_volume(volume)
 
-    def __limitHandler(self, audioList, limit):
+    def __limit_handler(self, audio_list, limit):
         i = 0
         limitList = []
-        for audio in audioList:
+        for audio in audio_list:
             if(i >= limit): break
             limitList.append(audio)
             i += 1
 
         return limitList
 
-    def __checkValidfPath(self, pathVar):
+    def __check_valid_path(self, path_var):
         #checks
-        if(pathVar == None or not isinstance(pathVar,str)):
+        if(path_var == None or not isinstance(path_var,str)):
             print("Argument must be a string of the path which leads to the audio file you wish to write to Vector")
             return "bad input"
-        if('/' not in pathVar):
-            if('\\' not in pathVar):
+        if('/' not in path_var):
+            if('\\' not in path_var):
                 print("Argument doesn't look like a path. Expecting: '/Folder/Subfolder/Audio.wav' for example.")
                 return "bad input"
         #if we get here, all systems go!
-        return pathVar
+        return path_var
 
 
-    def __FigureOutSetVolume(self, volume):
+    def __figure_out_set_volume(self, volume):
         #1 = LOW, 2 = MEDIUM LOW, 3 = MEDIUM, 4 = MEDIUM HIGH, 5 = HIGH
         
         #figure out bad inputs
@@ -161,34 +161,32 @@ class Megaphone:
             #input must not be an int or a string
             return "bad input"
 
-
-
     # format string to get single
-    def __figureOutFilePath(self, filePath):
+    def __figure_out_file_path(self, file_path):
         #if file doesn't appear to present, try to get it.
-        if filePath.endswith('/') or filePath.endswith('\\'):
+        if file_path.endswith('/') or file_path.endswith('\\'):
             print("File doesn't seem to be included in the path. Attempting to grab it from whats specified.")
-            file = os.listdir(filePath)[0]
+            file = os.listdir(file_path)[0]
             if(file == None):
                 print("Couldn't find a file in the path specified")
                 return "bad input"
             else:
-                filePath = filePath+file
+                file_path = file_path+file
 
         #catch if extension not present and add if needed
-        if(".wav" in filePath):
-            return filePath
+        if(".wav" in file_path):
+            return file_path
         else:
-            return filePath + ".wav"
+            return file_path + ".wav"
 
     # format string to get multiple
-    def __figureOutFolderPath(self, folderPath):
+    def __figure_out_folder_path(self, folder_path):
         #*.wav lets glob know what file type to look for, it needs to be in the string
-        if("*.wav" in folderPath):
-            return folderPath
+        if("*.wav" in folder_path):
+            return folder_path
         else:
-            if folderPath.endswith('/') or folderPath.endswith('\\'):
-                return folderPath + "*.wav"
+            if folder_path.endswith('/') or folder_path.endswith('\\'):
+                return folder_path + "*.wav"
             else:
-                return folderPath + "/*.wav"
+                return folder_path + "/*.wav"
 
