@@ -32,7 +32,7 @@ The two lines below the import were extracted directly from the vector tutorial 
 
 The next step is easy, just use the initiated objects methods, (in our example, that’s 'robotEyes') like so:
 ```python
-robotEyes.MakeEyesBlue()
+robotEyes.make_eyes_blue()
 ```
 The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and their helpful methods, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
