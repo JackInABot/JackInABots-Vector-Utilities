@@ -54,7 +54,7 @@ JackInABots-Vector-Utilities/
 `main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
 ## 4. Feedback of any kind
-This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go the issues tab and speak your mind there. If it isn't set up yet I’m sorry, this is my first git repo, I will figure it out soon :)
+This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go to the issues tab and speak your mind there. If it isn't set up yet I’m sorry, this is my first git repo, I will figure it out soon :)
 
 ## 5. Documentation
 All documentation, including an overview of the utilities and their purpose, to the intricate details of how all the methods work and what their arguments do, can be found in the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki).
