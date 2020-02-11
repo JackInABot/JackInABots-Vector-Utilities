@@ -13,7 +13,7 @@ This is a pet project to create some easy to use, pick up and go executable code
 ## 1. Installation Info
 All of the utilities rely on the Vector SDK being operational, ensure that the SDK is working on your device and communicating with your vector before using any of the utilities. [Here is the tutorial provided by Anki to do that](https://developer.anki.com/vector/docs/index.html).
 
-Right now this repo is under development, and therefore is not available from pip3 or anything like that. Right now the best way is to gain access to the utilities is to implement `from Utilities import <Utility Filename> as <classRef>` into any file using the Utilities. So to import the RainbowEyes utility: `from Utilities import RainbowEyes as rbe`.
+Right now this repo is under development, and therefore is not available from pip3 or anything like that. Right now the best way to gain access to the utilities is to implement `from Utilities import <Utility Filename> as <classRef>` into any file using the Utilities. So to import the RainbowEyes utility: `from Utilities import RainbowEyes as rbe`.
 
 **Also, ensure the _Utilities_ folder is inside the same directory as your project folder and / or the file(s) which will be using them**.
 
