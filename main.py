@@ -9,8 +9,7 @@ def main():
     # d^-^b vars for the test d^-^b #
     forever = False
 
-    args = anki_vector.util.parse_command_args()
-    with anki_vector.Robot(args.serial) as robot:
+    with anki_vector.Robot() as robot:
         # d^-^b Any initial setup before test d^-^b #
         robotEyes = rbe.RainbowEyes(robot)
         robotVoice = mph.Megaphone(robot)
@@ -19,8 +18,9 @@ def main():
         print("Beginning Test...")
         while True:
             # d^-^b Test Contents d^-^b #
-            robotEyes.make_eyes_rainbow(0,3)
-            time.sleep(1)
+            #robotEyes.make_eyes_rainbow(0,3)
+            #time.sleep(1)
+            robot.anim.play_animation_trigger('ChargerDockingAlreadyHere')
             # end test # 
             if(forever == False):
                 break
@@ -39,14 +39,13 @@ if __name__ == '__main__':
 
 """
 Setup type one (with args):
----------------------------------------------------------------------------
     args = anki_vector.util.parse_command_args()
     with anki_vector.Robot(args.serial) as robot:
-
-Setup type two (behaviour None)
-Works only with - SetGlobalVolume()
 ---------------------------------------------------------------------------
+Setup type two (behaviour None) - Works only with - SetGlobalVolume()
     with anki_vector.Robot(behavior_control_level=None) as robot:
-
+---------------------------------------------------------------------------
+Setup type 3 Async
+    with anki_vector.AsyncRobot() as robot:
 
 """
