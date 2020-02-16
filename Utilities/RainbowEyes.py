@@ -354,7 +354,7 @@ class RainbowEyes(RainbowEyesCORE):
         self._RainbowEyesCORE__set_sat(1)
         self._RainbowEyesCORE__write_to_robot()
 
-    def make_eyes_custom(self, write_saved, hue=None, saturation=None):
+    def make_eyes_custom(self, write_saved=None, hue=None, saturation=None):
         write_saved = False if write_saved == None else write_saved
         hue = self.hue if hue == None else hue
         saturation = self.sat if saturation == None else saturation
