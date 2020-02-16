@@ -37,21 +37,22 @@ robotEyes.make_eyes_blue()
 The utility classes have private methods which handle communication to the SDK and the functionality of the public methods which you are able to access, for more information of all the current supported utilities and their helpful methods, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
 ## 3. What's included
-The repo currently contains the following:
-```
-JackInABots-Vector-Utilities/
-├── main.py/
-├── Utilities/
-|   ├── RainbowEyes.py
-|   └── Megaphone.py
-└── Examples/
-    ├ HAL_9000_impression.py
-    └─ Audio/
-        └─ HAL 9000
-            └─ hal_quote.wav
-    
-```
-`main.py` is setup to act as a testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
+This repo currently contains the following:
+#### Utilities
+1. RainbowEyes - Control Vectors eye colour
+1. Megaphone - Control Vectors audio output
+
+#### Dev tools
+1. Animation - Check if local animations are out of date
+1. Testing - Run through the utilities methods to check if they work as expected.
+
+#### Examples
+1. HAL_9000_impression.py - Have Vector do a HAL 9000 impression.
+1. Count_to_10.py - Have Vector count from 1 to 10... in french!
+
+Any of the contents of the `Examples`folder or the `Dev tools` folder do not affect the Utilities in any way and can be deleted if you don't want them. Everything inside the `Utilities` folder does coincidentally rely on the functionality of a Utility.
+
+Also just an important note. `main.py` is setup to act as a manual testing environment for the utilities included in the repo. `main.py` is **not essential** to the functionality of the Utilities and **can be deleted** if you would prefer it not exist. For more information on what the utilities do, check the [wiki](https://github.com/JackInABot/JackInABots-Vector-Utilities/wiki)!
 
 ## 4. Feedback of any kind
 This project is open to any feedback you have, suggestions or bug highlighting. You can hopefully reach me on here if you go to the issues tab and speak your mind there. If it isn't set up yet I’m sorry, this is my first git repo, I will figure it out soon :)
