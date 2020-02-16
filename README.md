@@ -39,16 +39,16 @@ The utility classes have private methods which handle communication to the SDK a
 ## 3. What's included
 This repo currently contains the following:
 #### Utilities
-1. RainbowEyes - Control Vectors eye colour
-1. Megaphone - Control Vectors audio output
+* RainbowEyes - Control Vectors eye colour
+* Megaphone - Control Vectors audio output
 
 #### Dev tools
-1. Animation - Check if local animations are out of date
-1. Testing - Run through the utilities methods to check if they work as expected.
+* Animation - Check if local animations are out of date
+* Testing - Run through the utilities methods to check if they work as expected.
 
 #### Examples
-1. HAL_9000_impression.py - Have Vector do a HAL 9000 impression.
-1. Count_to_10.py - Have Vector count from 1 to 10... in french!
+* HAL_9000_impression.py - Have Vector do a HAL 9000 impression.
+* Count_to_10.py - Have Vector count from 1 to 10... in french!
 
 Any of the contents of the `Examples`folder or the `Dev tools` folder do not affect the Utilities in any way and can be deleted if you don't want them. Everything inside the `Utilities` folder does coincidentally rely on the functionality of a Utility.
 
